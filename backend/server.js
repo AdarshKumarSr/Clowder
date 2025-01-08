@@ -10,6 +10,7 @@ const authRoutes = require('./routes/auth'); // Import auth routes
 const courseRoutes = require('./routes/course')
 const compilerRoutes = require('./routes/compiler');
 const complexityRoutes = require('./routes/complexity');
+const visualizationRoutes = require('./routes/visualization')
 
 // Load environment variables from .env file
 dotenv.config();
@@ -23,7 +24,8 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
   credentials: true, // Allows cookies, if needed
 }));
-app.use(express.json()); // Body parser for JSON
+
+app.use(express.json()); // For parsing JSON requests
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public'))); // Serve static files (CSS, JS)
 
@@ -35,6 +37,7 @@ app.use('/api/auth', authRoutes); // Register the auth route
 app.use('api/courses', courseRoutes)
 app.use('/api/compiler', compilerRoutes); // Compiler route
 app.use('/api/complexity', complexityRoutes); // Complexity analysis route
+app.use('/api/visualize', visualizationRoutes) // visualization api
 
 // Catch-all for undefined routes
 app.use((req, res, next) => {

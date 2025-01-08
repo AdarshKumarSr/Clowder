@@ -116,3 +116,67 @@ This project is licensed under the MIT License.
 - **Email**: srivastavaadarsh084@gmail.com  
 
 ---  
+
+```
+AI-SANDBOX
+├─ backend
+│  ├─ .env
+│  ├─ config
+│  │  └─ db.js
+│  ├─ controllers
+│  │  ├─ auth.controller.js
+│  │  ├─ compiler.complexity.js
+│  │  ├─ compiler.controller.js
+│  │  ├─ course.controller.js
+│  │  └─ visualization.controller.js
+│  ├─ models
+│  │  ├─ course.admin.js
+│  │  └─ User.js
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ routes
+│  │  ├─ auth.js
+│  │  ├─ compiler.js
+│  │  ├─ complexity.js
+│  │  ├─ course.js
+│  │  └─ visualization.js
+│  └─ server.js
+├─ frontend
+│  ├─ .env
+│  ├─ eslint.config.js
+│  ├─ index.html
+│  ├─ package-lock.json
+│  ├─ package.json
+│  ├─ public
+│  │  └─ vite.svg
+│  ├─ README.md
+│  ├─ src
+│  │  ├─ api
+│  │  │  └─ api.js
+│  │  ├─ App.jsx
+│  │  ├─ assets
+│  │  │  ├─ css
+│  │  │  │  ├─ buttons.css
+│  │  │  │  ├─ compiler.css
+│  │  │  │  ├─ forms.css
+│  │  │  │  ├─ global.css
+│  │  │  │  ├─ Home.css
+│  │  │  │  ├─ Login.css
+│  │  │  │  └─ Registration.css
+│  │  │  └─ react.svg
+│  │  ├─ components
+│  │  │  ├─ Footer.jsx
+│  │  │  └─ Nav.jsx
+│  │  ├─ index.css
+│  │  ├─ main.jsx
+│  │  └─ pages
+│  │     ├─ Compiler.jsx
+│  │     ├─ Course.jsx
+│  │     ├─ Home.jsx
+│  │     ├─ Login.jsx
+│  │     └─ Register.jsx
+│  └─ vite.config.js
+├─ package-lock.json
+└─ README.md
+
+```

@@ -58,3 +58,40 @@ pre {
     padding: 10px;
     border-radius: 5px;
 }
+.visualization-container {
+    margin-top: 20px;
+    padding: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+  }
+  
+  .visualization-container h3 {
+    margin-bottom: 10px;
+  }
+  
+  .visualization-container .step-details p {
+    margin: 5px 0;
+    font-size: 14px;
+  }
+  
+  .visualization-container .button-group {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+  }
+  
+  .visualization-container .button-group button {
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .visualization-container .button-group button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .ace_gutter-cell.highlighted-line {
+    background-color: rgba(233, 255, 254, 0.322); /* Yellow background */
+  }
+  
