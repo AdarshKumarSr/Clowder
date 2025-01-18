@@ -11,7 +11,8 @@ const courseRoutes = require('./routes/course')
 const compilerRoutes = require('./routes/compiler');
 const complexityRoutes = require('./routes/complexity');
 const visualizationRoutes = require('./routes/visualization')
-
+const runTestsRoutes = require('./routes/runTests')
+const getProblemsRoutes = require('./routes/getProblems')
 // Load environment variables from .env file
 dotenv.config();
 
@@ -38,7 +39,8 @@ app.use('api/courses', courseRoutes)
 app.use('/api/compiler', compilerRoutes); // Compiler route
 app.use('/api/complexity', complexityRoutes); // Complexity analysis route
 app.use('/api/visualize', visualizationRoutes) // visualization api
-
+app.use('/api/runtests', runTestsRoutes) // runs tests for submition of the type 2 lesson
+app.use('/api/problems', getProblemsRoutes) // to get the problems
 // Catch-all for undefined routes
 app.use((req, res, next) => {
     res.status(404).json({ message: 'Route not found' });

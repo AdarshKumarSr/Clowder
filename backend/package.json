@@ -23,6 +23,7 @@
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^8.9.2",
     "nodemon": "^3.1.9",
-    "pyodide": "^0.27.0"
+    "pyodide": "^0.27.0",
+    "uuid": "^11.0.5"
   }
 }
