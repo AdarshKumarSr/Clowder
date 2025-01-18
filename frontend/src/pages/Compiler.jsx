@@ -9,7 +9,7 @@ import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/ext-language_tools";
 
 const Compiler = () => {
-  const [code, setCode] = useState(`# Write your Python code here\nprint("Hello, World!")`);
+  const [code, setCode] = useState(`# Write your Python code here\nprint("Dude! at least write one line of code!")`);
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [complexity, setComplexity] = useState({ timeComplexity: "", spaceComplexity: "" });
@@ -163,18 +163,18 @@ const Compiler = () => {
       {steps.length > 0 && (
         <div className="visualization-container">
           <h3>Visualization Steps</h3>
-          <p>
+          <p> {/* yaha pe */}
             <strong>Step {steps[currentStepIndex]?.stepNumber}:</strong>{" "}
             {steps[currentStepIndex]?.description}
           </p>
           {steps[currentStepIndex]?.local_vars && (
-            <div>
+            <div> {/* yaha pe */}
               <strong>Local Variables:</strong>
               <pre>{JSON.stringify(steps[currentStepIndex].local_vars, null, 2)}</pre>
             </div>
           )}
           {steps[currentStepIndex]?.line && (
-            <div>
+            <div> {/* yaha pe */}
               <strong>Line Number:</strong> {steps[currentStepIndex].line}
             </div>
           )}
