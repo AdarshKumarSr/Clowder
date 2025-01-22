@@ -48,8 +48,14 @@ async function executePythonCode(code) {
   `);
 
   try {
-    // Execute user code safely and capture the trace
-    const traceResults = await pyodide.runPythonAsync(`execute_code("""${code.replace(/"/g, '\\"')}""")`);
+    // Escape the code properly for embedding
+    const escapedCode = code
+      .replace(/\\/g, '\\\\')  // Escape backslashes
+      .replace(/'/g, "\\'")   // Escape single quotes
+      .replace(/"/g, '\\"');  // Escape double quotes
+
+    // Pass the escaped code to Pyodide's exec
+    const traceResults = await pyodide.runPythonAsync(`execute_code('''${escapedCode}''')`);
     return JSON.parse(traceResults);
   } catch (error) {
     throw new Error(`Execution error: ${error.message}`);
@@ -57,5 +63,5 @@ async function executePythonCode(code) {
 }
 
 module.exports = {
-  executePythonCode
+  executePythonCode,
 };

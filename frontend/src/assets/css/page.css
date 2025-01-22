@@ -1,0 +1,299 @@
+.page {
+    width: 100vw;  
+    height: 100vh;
+    background-color: #F8F4FF;
+    z-index: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.stroke {
+    margin-top: 350px;
+    margin-left: 350px;
+}
+
+.page1 {
+    display: flex;
+    width: 584px;
+    height: 500px;
+    z-index: 1;
+    margin-left: 0px;
+    margin-top: 85px;
+    /* border: 2px solid black;
+    border-radius: 0%; */
+    flex-direction: column;
+    justify-content: center;
+    
+    gap: 10px;
+    
+}
+
+.page1 img {
+    width: 80%; 
+    height: auto;
+    object-fit: cover;
+    margin: auto;
+    margin: 0p10px 0;
+
+}
+.page1 button {
+    width: 300px; /* Adjust the width as needed */
+    height: 92px;
+    padding: 5px 0; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    color: #8364BC;
+    background-color: #2D2E2E;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 30px; /* Add some margin above the button */
+    text-align: center;
+    font-size: 25px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    
+}
+
+.page1 button:hover {
+    background-color: #353d3d;
+}
+
+.page2 {
+    width: 100vw;  
+    height: 100vh;
+    background-color: #F8F4FF;
+    z-index: 0;
+    display: flex;
+    
+}
+
+
+
+.i1 {
+    width: 550px; /* Adjust the width as needed */
+    height: auto;
+    object-fit: cover;
+    margin: 10px 0; /* Add some margin if needed */
+    z-index: 2;
+
+    
+    margin-top: 30px;
+    
+}
+.Displaycard{
+    width: 550px;
+    height: 600px;
+    background-color: #2D2E2E;
+    margin-top: 50px;
+    margin-left: 250px;
+    border: 1px solid black;
+    border-radius: 25px;
+    justify-content: end;
+
+}
+.Displaycard .i2 {
+    width: 400px !important; /* Reduced width with !important */
+    height: auto !important;
+    object-fit: cover !important;
+    margin-left: 70px;
+    margin-top:30px ;
+}
+.Displaycard .i3 {
+    width: 300px !important; /* Reduced width with !important */
+    height: auto !important;
+    object-fit: cover !important;
+    margin-left: 150px;
+    margin-top:40px ;
+}
+.Displaycard .i4 {
+    width: 400px !important; /* Reduced width with !important */
+    height: auto !important;
+    object-fit: cover !important;
+    margin-left: 100px;
+    margin-top:40px ;
+}
+.page3 {
+    width: 100vw;  
+    height: 100vh;
+    background-color: #F8F4FF;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Displayvideo {
+    display: flex;
+    width: 60%;
+    height: 65%;
+    background-color: black;
+    z-index: 2;
+    margin-top: 150px;
+    margin-left: 325px;
+    position: relative;
+    border: 1px solid #8364BC;
+    border-radius: 25px;
+}
+.i5 {
+    width: 22%; /* Adjust the width as needed */
+    height: auto;
+    object-fit: cover;
+    margin-left: 650px;
+    z-index: 2;
+    margin-top: 55px;
+}
+.stroke2{
+
+        position: absolute; /* Position the stroke absolutely */
+        top: 92%; /* Adjust the top position as needed */
+        left: 190px; /* Adjust the left position as needed */
+        transform: translateY(-50%); /* Center the stroke vertically */
+        width: 25%; /* Maintain original size */
+        height: auto;
+        z-index: 4;
+    
+}
+.v1{
+    border: 1px solid #8364BC;
+    border-radius: 25px;
+}
+.page4 {
+    width: 100vw;  
+    height: 100vh;
+    background-color: #F8F4FF;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+}
+.displaycard2 {
+    display: flex;
+    width: 30%;
+    height: 65%;
+    background-color: #2D2E2E;
+    z-index: 2;
+    margin-top: 110px;
+    margin-left: 150px;
+    position: relative;
+    border: 1px solid #8364BC;
+    border-radius: 25px;
+    flex-direction: column;
+}
+.i6{
+    width: 80%; /* Adjust the width as needed */
+    height: auto;
+    object-fit: cover;
+    margin-top: 30px;
+    margin-left: 30px;
+    
+}
+.i7{
+    width: 70%; /* Adjust the width as needed */
+    height: auto;
+    object-fit: cover;
+    margin-top: 30px;
+    margin-left: 30px;
+    
+}
+.i8{
+    width: 70%; /* Adjust the width as needed */
+    height: auto;
+    object-fit: cover;
+    margin-top: 30px;
+    margin-left: 30px;
+    
+}
+.examplecard{
+    width: 30%;
+    height: 55%;
+    
+    z-index: 2;
+    margin-top: -350px;
+    margin-left: 990px;
+    border: 1px solid #8364BC;
+    border-radius: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.eci{
+    width: 140%; /* Adjust the width as needed */
+    height: 170%;
+    object-fit: cover;
+    margin-top: 30px;
+    margin-left: 30px;
+}
+.page5 {
+    width: 100vw;  
+    height: 100vh;
+    background-color: #F8F4FF;
+    z-index: 0;
+    display: flex;
+    flex-direction: column;
+}
+.displaycard3{
+    display: flex;
+    width: 50%;
+    height: 75%;
+    z-index: 2;
+    margin-top: 120px;
+    margin-left: 400px;
+    position: relative;
+    /* border: 1px solid #8364BC;
+    border-radius: 25px; */
+    flex-direction: column;
+}
+.i10{
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    margin-left: 90px;
+    margin-top: -20px;
+}
+.i11{
+    width: 70%;
+    margin-top: -20px;
+    height: auto;
+    object-fit: cover;
+    margin-left: 90px;
+}
+.i12{
+    width: 35%;
+    height: auto;
+    object-fit: cover;
+    margin-left: 200px;
+    margin-top: 10px;
+    
+}
+.i13{
+    width: 70%;
+    height: auto;
+    object-fit: cover;
+    margin-left: 100px;
+    margin-top: 10px;
+    
+}
+.btn2{
+    margin-top: 10px;
+    margin-left: 215px;
+}
+.page5 button {
+    width: 200px; /* Adjust the width as needed */
+    height: 50px;
+    padding: 5px 0; /* Adjust padding as needed */
+    font-size: 7px; /* Adjust font size as needed */
+    color: #8364BC;
+    background-color: #2D2E2E;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+    margin-left: 10px; /* Add some margin above the button */
+    text-align: center;
+    font-size: 17px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    
+}
+
+.page5 button:hover {
+    background-color: #353d3d;
+}
