@@ -1,0 +1,9 @@
+.main {
+    overflow: auto;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    overflow: auto; /* Ensure scrolling is enabled */
+  }
