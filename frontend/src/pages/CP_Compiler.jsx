@@ -28,6 +28,7 @@ const Compiler = () => {
         if (response.data.success) {
           const fetchedProblem = response.data.problem[0]; // Assuming the response returns an array
           setProblem(fetchedProblem);
+          console.log(fetchedProblem);
 
           // Check if there's saved code for this problem
           const savedCode = localStorage.getItem(`problem_code_${problem_no}`);
@@ -80,7 +81,7 @@ const Compiler = () => {
       if (response.data.success) {
         // Filter the results to show only the first failed test case or "All tests passed"
         const filteredResults = response.data.result.filter(result => !result.passed);
-        
+
         // Show only the first failed test case, or if no test fails, show all passed
         if (filteredResults.length > 0) {
           setTestResults([filteredResults[0]]); // Show only first failed test
@@ -125,7 +126,7 @@ const Compiler = () => {
   };
 
   return (
-    <div className="compiler-container">
+    <div className="cp-compiler-container">
       {problem && (
         <div className="problem-statement">
           <h1>Problem {problem_no}</h1>
@@ -133,8 +134,8 @@ const Compiler = () => {
         </div>
       )}
 
-      <div className="editor-output">
-        <div className="editor-container">
+      <div className="cp-editor-output">
+        <div className="cp-editor-container">
           <AceEditor
             mode="python"
             theme="monokai"
@@ -153,7 +154,7 @@ const Compiler = () => {
           </div>
         </div>
 
-        <div className="output-container">
+        <div className="cp-output-container">
           <h3>Output</h3>
           <pre>{output}</pre>
           {error && <pre style={{ color: "red" }}>{error}</pre>}
