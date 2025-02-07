@@ -1,36 +1,95 @@
+/* Login Container - Centering */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background: #f4f4f4; /* Light gray background */
+}
+
+/* Rectangular Form Box */
 .form-container {
-    max-width: 400px;
-    margin: 50px auto;
+  width: 400px; /* Rectangle shape */
+  padding: 30px;
+  background: #fff; /* White background for contrast */
+  border: 2px solid #8364BC; /* Purple border */
+  border-radius: 8px; /* Slight rounding */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); /* Raised effect */
+  text-align: center;
+  position: relative;
+}
+
+/* Login Title at the Top */
+h2 {
+  font-size: 26px;
+  font-weight: bold;
+  color: #8364BC; /* Purple font color */
+  position: absolute;
+  top: 188px; /* Move slightly above */
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 15px;
+}
+
+/* Form Inputs */
+input {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+/* Submit Button */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #8364BC; /* Purple background */
+  color: #fff; /* White text */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: 0.3s; /* Smooth hover effect */
+  margin: 0 auto; /* Center the button horizontally */
+}
+
+button:hover {
+  background-color: #6b52a3; /* Darker purple on hover */
+}
+
+/* Paragraph under the form with a link */
+p {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #666;
+}
+
+a {
+  text-decoration: none;
+  color: #8364BC;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design for Mobile */
+@media (max-width: 600px) {
+  .form-container {
+    width: 90%;
     padding: 20px;
-    background: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   }
-  
-  form {
-    display: flex;
-    flex-direction: column;
+
+  h2 {
+    font-size: 22px;
   }
-  
-  input {
-    margin: 10px 0;
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-  }
-  
+
   button {
-    padding: 10px;
-    font-size: 16px;
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
+    font-size: 14px;
   }
-  
-  button:hover {
-    background-color: #0056b3;
-  }
-  
+}

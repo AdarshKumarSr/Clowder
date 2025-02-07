@@ -59,6 +59,7 @@ const Home = () => {
           <div><img className="i2" src={i2} alt="" /></div>
           <div><img className="i3" src={i3} alt="" /></div>
           <div><img className="i4" src={i4} alt="" /></div>
+          <button id="c1" onClick={() => navigate('/courses')}><b>Courses</b></button>
         </div>
       </div>
 
@@ -80,6 +81,7 @@ const Home = () => {
           <div><img className="i6" src={i6} alt="" /></div>
           <div><img className="i7" src={i7} alt="" /></div>
           <div><img className="i8" src={i8} alt="" /></div>
+          <button id="c2" onClick={() => navigate('/community')}><b>Community</b></button>
         </div>
         <div className="examplecard">
           <img className="eci" src={Examplecard} alt="" />

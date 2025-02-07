@@ -28,7 +28,7 @@ const App = () => {
           <Route path='/dsa' element={<DSA_Page />} />
         </Routes>
 
-        <Footer /> {/* Footer */}
+        
       </div>
     </Router>
   );

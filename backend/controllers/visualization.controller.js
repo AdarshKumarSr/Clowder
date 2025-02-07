@@ -2,10 +2,10 @@ const { loadPyodide } = require("pyodide");
 
 // Function to execute Python code and generate execution steps
 async function executePythonCode(code) {
-  const pyodide = await loadPyodide();
+    const pyodide = await loadPyodide();
 
-  // Load the tracing function into Pyodide
-  await pyodide.runPythonAsync(`
+    // Load the tracing function into Pyodide
+    await pyodide.runPythonAsync(`
     import sys
     import json
     import types
@@ -47,21 +47,22 @@ async function executePythonCode(code) {
         return json.dumps(execution_steps)
   `);
 
-  try {
-    // Escape the code properly for embedding
-    const escapedCode = code
-      .replace(/\\/g, '\\\\')  // Escape backslashes
-      .replace(/'/g, "\\'")   // Escape single quotes
-      .replace(/"/g, '\\"');  // Escape double quotes
+    try {
+        // Escape the code properly for embedding
+        const escapedCode = code
+            .replace(/\\/g, '\\\\') // Escape backslashes
+            .replace(/'/g, "\\'") // Escape single quotes
+            .replace(/"/g, '\\"'); // Escape double quotes
 
-    // Pass the escaped code to Pyodide's exec
-    const traceResults = await pyodide.runPythonAsync(`execute_code('''${escapedCode}''')`);
-    return JSON.parse(traceResults);
-  } catch (error) {
-    throw new Error(`Execution error: ${error.message}`);
-  }
+        // Pass the escaped code to Pyodide's exec
+        const traceResults = await pyodide.runPythonAsync(`execute_code('''${escapedCode}''')`);
+        return JSON.parse(traceResults);
+    } catch (error) {
+
+        throw new Error(`Execution error: ${error.message}`);
+    }
 }
 
 module.exports = {
-  executePythonCode,
+    executePythonCode,
 };
