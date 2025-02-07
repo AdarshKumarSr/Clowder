@@ -112,6 +112,22 @@
     margin-left: 100px;
     margin-top:40px ;
 }
+#c1{
+    width: 200px; /* Adjust the width as needed */
+    height: 62px;
+    padding: 5px 0; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    color: #8364BC;
+    background-color: #444444;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 30px;
+    margin-left: 170px; /* Add some margin above the button */
+    text-align: center;
+    font-size: 25px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+}
 .page3 {
     width: 100vw;  
     height: 100vh;
@@ -176,6 +192,22 @@
     border: 1px solid #8364BC;
     border-radius: 25px;
     flex-direction: column;
+}
+#c2{
+    width: 170px; /* Adjust the width as needed */
+    height: 56px;
+    padding: 5px 0; /* Adjust padding as needed */
+    font-size: 14px; /* Adjust font size as needed */
+    color: #8364BC;
+    background-color: #444444;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 20px;
+    margin-left: 120px; /* Add some margin above the button */
+    text-align: center;
+    font-size: 25px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 .i6{
     width: 80%; /* Adjust the width as needed */
