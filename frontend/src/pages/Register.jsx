@@ -19,6 +19,7 @@ const Register = () => {
     try {
       const response = await API.post('/auth/register', formData);  // Correct API endpoint
       alert(response.data.message);  // Success message from backend
+      
     } catch (err) {
       console.error(err.response?.data || err.message);
       alert('Registration failed.');  // Error message
