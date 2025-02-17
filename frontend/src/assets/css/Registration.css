@@ -1,16 +1,28 @@
-/* .form-container */
+/* Full-page centering */
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full height */
+  background-color: white; /* Keeping your original background color */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Form container */
 .form-container {
-  top: 70px;
   max-width: 400px;
-  margin: 50px auto;
+  width: 90%;
   padding: 30px;
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  font-family: Arial, sans-serif;
+  text-align: center;
   z-index: 5;
 }
 
+/* Heading */
 h2 {
   text-align: center;
   font-size: 24px;
@@ -32,6 +44,7 @@ input {
   border: 1px solid #ddd;
   border-radius: 8px;
   background-color: #f9f9f9;
+  width: 100%;
   transition: all 0.3s ease;
 }
 
@@ -42,16 +55,21 @@ input:focus {
 }
 
 /* Button styles */
-button {
+.btn21 button {
+  background-color: #28a745;
+  color: white;
+  border-radius: 8px;
+  font-weight: bold;
   padding: 12px;
   font-size: 16px;
-  background-color: #28a745;
-  color: #fff;
+
+  
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  
   transition: background-color 0.3s ease;
-  font-weight: bold;
+  
 }
 
 button:hover {
@@ -72,7 +90,6 @@ button:disabled {
 
   h2 {
     font-size: 20px;
-    
   }
 
   input {

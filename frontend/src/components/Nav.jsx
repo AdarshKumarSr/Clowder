@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';  
-import Logo from '../assets/CLOWDER.png';
+
 
 function Nav() {
   return (
     <nav className="navbar">
-      <div className="logo"><img src={Logo} alt="" /></div>
+      <div className="logo">Clowder</div>
       <ul className="nav-links">
         <li><Link to="/">Home</Link></li>
         <li><Link to="/compiler">Compiler</Link></li>
