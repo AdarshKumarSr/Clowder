@@ -1,3 +1,10 @@
+@font-face {
+    font-family: "impact";
+    src: url(../fonts/impact.ttf);
+    font-family: 'imprima';
+    src: url(../fonts/Imprima-Regular.ttf);
+}
+
 .page {
     width: 100vw;  
     height: 100vh;
@@ -17,7 +24,7 @@
     width: 584px;
     height: 500px;
     z-index: 1;
-    margin-left: 0px;
+    margin-left: 20px;
     margin-top: 85px;
     /* border: 2px solid black;
     border-radius: 0%; */
@@ -47,10 +54,36 @@
     border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
-    margin-left: 30px; /* Add some margin above the button */
+    margin-left: 0px; /* Add some margin above the button */
     text-align: center;
     font-size: 25px;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
+    
+}
+.page1 .heading{
+    font-size: 80px;
+    font-family: "impact";
+    color: #8364BC;
+    
+}
+.page1 .heading2{
+    font-size: 30px;
+    font-family: "imprima";
+    color: #000000;
+    
+}
+.page1 .heading2 p{
+    font-size: 30px;
+    font-family: "imprima";
+    color: #8364BC;
+    text-shadow: horizontal-offset vertical-offset blur-radius color;
+    text-shadow: 2px 2px 2px grey;
+    
+}
+.page1 .heading3{
+    font-size: 25px;
+    font-family: "imprima";
+    color: #000000;
     
 }
 
@@ -92,25 +125,29 @@
 
 }
 .Displaycard .i2 {
-    width: 400px !important; /* Reduced width with !important */
-    height: auto !important;
-    object-fit: cover !important;
-    margin-left: 70px;
-    margin-top:30px ;
+    font-size: 80px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #8364BC;
+    text-align: right;
+    margin-right: 35px;
+    margin-top: 10px;
 }
 .Displaycard .i3 {
-    width: 300px !important; /* Reduced width with !important */
-    height: auto !important;
-    object-fit: cover !important;
-    margin-left: 150px;
-    margin-top:40px ;
+    font-size: 40px;
+    font-family: "imprima";
+    color: white;
+    margin-right: 35px;
+    margin-top: 10px;
+    text-align: right;
 }
 .Displaycard .i4 {
-    width: 400px !important; /* Reduced width with !important */
-    height: auto !important;
-    object-fit: cover !important;
-    margin-left: 100px;
-    margin-top:40px ;
+    font-size: 25px;
+    font-family: "imprima";
+    color: white;
+    margin-top: 30px;
+    margin-left: 30px;
+    margin-right: 20px;
+    text-align: right;
 }
 #c1{
     width: 200px; /* Adjust the width as needed */
@@ -156,6 +193,9 @@
     margin-left: 650px;
     z-index: 2;
     margin-top: 55px;
+    font-family: 'imprima';
+    color: black;
+    font-size: 25px;
 }
 .stroke2{
 
@@ -182,8 +222,8 @@
 }
 .displaycard2 {
     display: flex;
-    width: 30%;
-    height: 65%;
+    width: 40%;
+    height: 80%;
     background-color: #2D2E2E;
     z-index: 2;
     margin-top: 110px;
@@ -203,34 +243,36 @@
     border: none;
     border-radius: 10px;
     cursor: pointer;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 120px; /* Add some margin above the button */
     text-align: center;
     font-size: 25px;
     font-family: "Comic Sans MS", "Comic Sans", cursive;
 }
 .i6{
-    width: 80%; /* Adjust the width as needed */
-    height: auto;
-    object-fit: cover;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     margin-top: 30px;
     margin-left: 30px;
+    text-align: left;
+    color: #8364BC;
+    font-size: 80px;
     
 }
 .i7{
-    width: 70%; /* Adjust the width as needed */
-    height: auto;
-    object-fit: cover;
+    font-family: "imprima";
+    color: white;
+    font-size: 30px;
     margin-top: 30px;
     margin-left: 30px;
     
 }
 .i8{
-    width: 70%; /* Adjust the width as needed */
-    height: auto;
-    object-fit: cover;
+    font-family: 'imprima';
+    color: white;
+    font-size: 25px;
     margin-top: 30px;
     margin-left: 30px;
+    text-align: left;
     
 }
 .examplecard{
@@ -251,8 +293,9 @@
     width: 140%; /* Adjust the width as needed */
     height: 170%;
     object-fit: cover;
-    margin-top: 30px;
-    margin-left: 30px;
+    /* margin-top: 30px;
+    margin-left: 30px; */
+    margin-bottom: 190px;
 }
 .page5 {
     width: 100vw;  
@@ -267,7 +310,7 @@
     width: 50%;
     height: 75%;
     z-index: 2;
-    margin-top: 120px;
+    margin-top: 155px;
     margin-left: 400px;
     position: relative;
     /* border: 1px solid #8364BC;
@@ -282,27 +325,31 @@
     margin-top: -20px;
 }
 .i11{
-    width: 70%;
-    margin-top: -20px;
-    height: auto;
-    object-fit: cover;
-    margin-left: 90px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: #8364BC;
+    font-size: 58px;
+    text-align: center;
+    
+    
 }
 .i12{
-    width: 35%;
-    height: auto;
-    object-fit: cover;
-    margin-left: 200px;
-    margin-top: 10px;
+    font-family: "imprima";
+    color: #2D2E2E;
+    font-size: 25px;
+    text-align: center;
+    text-shadow: horizontal-offset vertical-offset blur-radius color;
+    text-shadow: 2px 2px 2px grey;
+    
     
 }
 .i13{
-    width: 70%;
-    height: auto;
-    object-fit: cover;
-    margin-left: 100px;
-    margin-top: 10px;
     
+    font-family: "imprima";
+    color: rgb(110, 109, 109);
+    font-size: 20px;
+    text-align: center;
+    text-shadow: horizontal-offset vertical-offset blur-radius color;
+    text-shadow: 2px 2px 2px grey;
 }
 .btn2{
     margin-top: 10px;

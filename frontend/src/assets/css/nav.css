@@ -1,4 +1,8 @@
 /* Navbar Styling */
+@font-face {
+    font-family: 'Slackey';
+    src: url('../fonts/Slackey-Regular.ttf') format('truetype');
+}
 .navbar {
     height: 62px;
     width: 100%;
@@ -16,9 +20,10 @@
 
 /* Logo Styling */
 .logo {
-    font-size: 24px;
+    font-size: 26px;
     font-weight: bold;
     color: black;
+    font-family: 'Slackey';
 }
 
 /* Navigation Links */
