@@ -19,7 +19,7 @@ function Login() {
         console.log(response.data); // Log the entire response to check token and user data
 
         const { message, token, user } = response.data;
-        alert(message); // Alert the success message
+        // alert(message); // Alert the success message
 
         // If you get the token and user data, you can store the token
         localStorage.setItem("token", token); // Store token in localStorage
@@ -57,7 +57,7 @@ function Login() {
             setFormData({ ...formData, password: e.target.value })
           }
         />
-        <button type="submit">Login</button>
+        <button id='btn-login' type="submit">Login</button>
         <p>if you dont have an account, then what are doing brokie <a href="/register">Register</a></p>
       </form>
     </div>

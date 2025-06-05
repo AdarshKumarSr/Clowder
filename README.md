@@ -179,4 +179,20 @@ AI-SANDBOX
 ├─ package-lock.json
 └─ README.md
 
+# Clowder Course API and Frontend Setup
+### June 5, 2025
+### I have Created the RestFull ApI for the Clowder Course Which is Currrently Hardcoded. Because I am checking the API with the Frontend.It is just and Initial Setup and the data flow is correct. According to our Requirements 
+### new files names are : course.model.js , course.controller.js, course.routes.js.
+## And the new API is http://localhost:5173/course/intro-to-js/page/1 this is Dynamic API which will update acc to page numbers. 
+
+# In frontend 
+### I have created Course folder in pages/Course inside this I have created Course.jsx file which will render the all courses . user can click on the course Name then move to the Course page where he can see the all chapters of the course and can click on the chapter to start the chapter.
+
+### New API http://localhost:5173/course/intro-to-js/page/1 this is in the fronendend CoursePages.jsx file which is under Pages .  Raw file http://localhost:5000/api/course/${courseId}/page/${pageNumber}..
+
+### I have also updated the Readme , and the login , Register and Navbar files.
+### Added the Preloader too.. 
+
+### I request to my team members to please verify it and start working on your respective tasks.
+# Thank you   
 ```
