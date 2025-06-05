@@ -27,8 +27,10 @@ const Register = () => {
   };
 
   return (
-    <div className="form-container">
-      <h2>Register</h2>
+    <div id="form-container">
+
+      <h2 id='h2-text'>Register</h2>
+
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -51,7 +53,8 @@ const Register = () => {
           value={formData.password}
           onChange={handleChange}
         />
-        <button type="submit">Register</button>
+        <button id='btn-register' type="submit">Register</button>
+        <p>if you have an account, then what are doing brokie <a href="/Login">Login</a></p>
       </form>
     </div>
   );

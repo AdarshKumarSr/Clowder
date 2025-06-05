@@ -12,9 +12,12 @@ const compilerRoutes = require('./routes/compiler');
 const complexityRoutes = require('./routes/complexity');
 const visualizationRoutes = require('./routes/visualization');
 const runTestsRoutes = require('./routes/runTests');
-const getProblemsRoutes = require('./routes/getProblems');
-const buildcourseRoutes = require('./routes/course01');
-const getCoursesRoutes = require('./routes/course01')
+// const getProblemsRoutes = require('./routes/getProblems');
+// const buildcourseRoutes = require('./routes/course01');
+// const getCoursesRoutes = require('./routes/course01')
+const courseRoutes = require("./routes/course.route"); // dummy course onichaaa !!!
+
+
 const { log } = require('console');
 
 // Load environment variables from .env file
@@ -44,9 +47,10 @@ app.use('/api/compiler', compilerRoutes); // Compiler route
 app.use('/api/complexity', complexityRoutes); // Complexity analysis route
 app.use('/api/visualize', visualizationRoutes); // Visualization API
 app.use('/api/runtests', runTestsRoutes); // Run tests for submission of the type 2 lesson
-app.use('/api/problems', getProblemsRoutes); // To get the problems
-app.use('/api/create-course', buildcourseRoutes);
-app.use('/api/courses', getCoursesRoutes);
+// app.use('/api/problems', getProblemsRoutes); // To get the problems
+// app.use('/api/create-course', buildcourseRoutes);
+// app.use('/api/courses', getCoursesRoutes);
+app.use("/api/course", courseRoutes);   // Dummy course onichaa !!!! ..... 
 
 
 // Catch-all for undefined routes

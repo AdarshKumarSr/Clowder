@@ -4,7 +4,7 @@ import '../assets/css/nav.css';
 import '../assets/css/page.css';
 import Nav from '../components/Nav';
 import { useNavigate } from 'react-router-dom';
-
+ 
 // Import assets
 import Heading from '../assets/heading.png';
 import Heading2 from '../assets/heading2.png';
