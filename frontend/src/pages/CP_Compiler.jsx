@@ -148,9 +148,9 @@ const Compiler = () => {
             style={{ width: "100%", height: "100%" }}
           />
           <div className="button-group">
-            <button onClick={() => { runCode(); analyzeComplexity(); }}>Run Code</button>
-            <button onClick={runTests}>Run Tests</button>
-            <button onClick={clearEditor}>Clear Editor</button>
+            <button className="cp-btn" onClick={() => { runCode(); analyzeComplexity(); }}>Run Code</button>
+            <button className="cp-btn" onClick={runTests}>Run Tests</button>
+            <button className="cp-btn" onClick={clearEditor}>Clear Editor</button>
           </div>
         </div>
 
