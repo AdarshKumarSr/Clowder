@@ -107,7 +107,7 @@ body {
   }
   
   /* Buttons */
-  button {
+  .cp-btn {
     padding: 12px 24px;
     background-color: #3e3e3e;
     color: #454545;

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import MCQCard from "../components/MCQCard";
 
 function CoursePage() {
   const { courseId, pageNumber } = useParams();
@@ -88,6 +89,19 @@ function CoursePage() {
             {pageData.bottomContent}
           </p>
         )}
+        {pageData.mcqs && pageData.mcqs.length > 0 && (
+  <div className="mt-8">
+    {pageData.mcqs.map((mcq, idx) => (
+      <MCQCard
+        key={idx}
+        question={mcq.question}
+        options={mcq.options}
+        correctAnswer={mcq.correctAnswer}
+        explanation={mcq.explanation}
+      />
+    ))}
+  </div>
+)}
 
         <div className="flex justify-between items-center mt-10">
           {currentPageNum > 1 ? (
