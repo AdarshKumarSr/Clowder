@@ -102,7 +102,15 @@ Example: Searching an unsorted array is O(n) time.`,
         explanation: "Stack is LIFO — Last In, First Out."
       }
     ]
-  }
+  },
+  {
+  courseId: "intro-to-js",
+  pageNumber: 6,
+  title: "Stack: Push and Pop",
+  content: "This animation demonstrates stack operations using a visual box.",
+  animationComponent: "StackAnimation"
+}
 ];
 
 module.exports = jsCourse;
+ 

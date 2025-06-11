@@ -15,7 +15,9 @@ import CP_Compiler from './pages/CP_Compiler';
 import DSA_Page from './pages/DSA';
 import Preloader from './components/Preloader'; // 👈 import preloader
 import CoursePage from './pages/CoursePage';
+import Profile from './pages/Profile';
 import "../src/assets/css/main.css"
+
 
 const App = () => {
   const [loading, setLoading] = useState(true);
@@ -44,6 +46,7 @@ const App = () => {
           <Route path="/cp_compiler/:problem_no" element={<CP_Compiler />} />
           <Route path='/dsa' element={<DSA_Page />} />
           <Route path='/course/:courseId/page/:pageNumber' element={<CoursePage />} />
+          <Route path='/profile' element={<Profile />} />
         </Routes>
       </div>
     </Router>

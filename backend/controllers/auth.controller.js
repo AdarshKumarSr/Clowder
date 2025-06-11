@@ -35,19 +35,18 @@ const login = async (req, res) => {
 
     // Create JWT token
     const token = jwt.sign(
-      { id: user._id, email: user.email },
+      { id: user._id, email: user.email , username : user.username},
       process.env.JWT_SECRET,
       { expiresIn: '1h' }
     );
 
-    // Send success response with token and user info
     res.status(200).json({
       message: 'Login successful',
       token: token,
       user: {
         id: user._id,
         email: user.email,
-        name: user.username,  // Assuming 'username' is the user's name
+        name: user.username,
       },
     });
   } catch (err) {
@@ -56,4 +55,10 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+// Logout user
+const logout = async (req, res) => {
+  // For JWT, simply tell frontend to remove the token
+  res.status(200).json({ message: 'Logged out successfully' });
+};
+
+module.exports = { register, login, logout };

@@ -1,39 +1,56 @@
 import React, { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useNavigate } from "react-router-dom";
 import MCQCard from "../components/MCQCard";
+import API from "../api/api"; // use axios instance
+
+// Import all your animation components here
+import StackAnimation from "./Animations/StackAnimation";
+// import QueueAnimation from "./Animations/QueueAnimation";
+// Add more as you create them...
+
+const animationComponents = {
+  StackAnimation,
+  
+  // Add new animations here as needed
+};
 
 function CoursePage() {
   const { courseId, pageNumber } = useParams();
+  const navigate = useNavigate();
+
   const [pageData, setPageData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [maxPage, setMaxPage] = useState(5); // Default to 5 if unknown
+  const [maxPage, setMaxPage] = useState(6);
 
   const currentPageNum = Number(pageNumber);
-  const progressPercent = Math.min(
-    100,
-    Math.max(0, (currentPageNum / maxPage) * 100)
-  );
+  const progressPercent = Math.min(100, Math.max(0, (currentPageNum / maxPage) * 100));
 
   useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      navigate("/login", { state: { from: window.location.pathname } });
+      return;
+    }
+
     setLoading(true);
 
-    fetch(`http://localhost:5000/api/course/${courseId}/page/${pageNumber}`)
-      .then((res) => res.json())
-      .then((data) => {
-        setPageData(data);
+    API.get(`/course/${courseId}/page/${pageNumber}`, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+      .then((res) => {
+        setPageData(res.data);
         setLoading(false);
       })
       .catch((err) => {
-        console.error("API Error:", err);
-        setPageData(null);
-        setLoading(false);
+        console.error("Fetch error:", err);
+        localStorage.removeItem("token");
+        navigate("/login", { state: { from: window.location.pathname } });
       });
 
-    // Optional: If you want to dynamically fetch all pages to set maxPage:
-    // fetch(`http://localhost:5000/api/course/${courseId}/all`)
-    //   .then(res => res.json())
-    //   .then(data => setMaxPage(data.length));
-  }, [courseId, pageNumber]);
+    // Optional: Fetch max pages dynamically here
+  }, [courseId, pageNumber, navigate]);
 
   if (loading) {
     return (
@@ -51,13 +68,17 @@ function CoursePage() {
     );
   }
 
+  // Select animation component if specified and exists
+  const AnimationComponent = pageData.animationComponent
+    ? animationComponents[pageData.animationComponent]
+    : null;
+
   return (
     <div
       className="min-h-screen bg-white px-4 sm:px-6 md:px-8 pb-10 flex justify-center"
       style={{ paddingTop: "82px" }}
     >
       <div className="w-full max-w-5xl bg-gray-100 rounded-lg p-4 sm:p-6 md:p-10 overflow-auto shadow-md">
-
         {/* Progress Bar */}
         <div className="w-full h-2 bg-gray-300 rounded overflow-hidden mb-6">
           <div
@@ -84,24 +105,32 @@ function CoursePage() {
           />
         )}
 
+        {/* Render animation if available */}
+        {AnimationComponent && (
+          <div className="my-8">
+            <AnimationComponent />
+          </div>
+        )}
+
         {pageData.bottomContent && (
           <p className="text-gray-800 text-base leading-relaxed mt-4 whitespace-pre-wrap">
             {pageData.bottomContent}
           </p>
         )}
-        {pageData.mcqs && pageData.mcqs.length > 0 && (
-  <div className="mt-8">
-    {pageData.mcqs.map((mcq, idx) => (
-      <MCQCard
-        key={idx}
-        question={mcq.question}
-        options={mcq.options}
-        correctAnswer={mcq.correctAnswer}
-        explanation={mcq.explanation}
-      />
-    ))}
-  </div>
-)}
+
+        {pageData.mcqs?.length > 0 && (
+          <div className="mt-8">
+            {pageData.mcqs.map((mcq, idx) => (
+              <MCQCard
+                key={idx}
+                question={mcq.question}
+                options={mcq.options}
+                correctAnswer={mcq.correctAnswer}
+                explanation={mcq.explanation}
+              />
+            ))}
+          </div>
+        )}
 
         <div className="flex justify-between items-center mt-10">
           {currentPageNum > 1 ? (
@@ -111,7 +140,9 @@ function CoursePage() {
             >
               ⬅ Prev
             </Link>
-          ) : <div />}
+          ) : (
+            <div />
+          )}
 
           {currentPageNum < maxPage ? (
             <Link
@@ -120,7 +151,9 @@ function CoursePage() {
             >
               Next ➡
             </Link>
-          ) : <div />}
+          ) : (
+            <div />
+          )}
         </div>
       </div>
     </div>

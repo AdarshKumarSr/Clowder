@@ -15,7 +15,9 @@ const runTestsRoutes = require('./routes/runTests');
 // const getProblemsRoutes = require('./routes/getProblems');
 // const buildcourseRoutes = require('./routes/course01');
 // const getCoursesRoutes = require('./routes/course01')
+// const courseContainerRoutes = require('./routes/CourseContainer');
 const courseRoutes = require("./routes/course.route"); // dummy course onichaaa !!!
+ 
 
 
 const { log } = require('console');
@@ -50,7 +52,9 @@ app.use('/api/runtests', runTestsRoutes); // Run tests for submission of the typ
 // app.use('/api/problems', getProblemsRoutes); // To get the problems
 // app.use('/api/create-course', buildcourseRoutes);
 // app.use('/api/courses', getCoursesRoutes);
-app.use("/api/course", courseRoutes);   // Dummy course onichaa !!!! ..... 
+// app.use('/api/courses', courseContainerRoutes); // course container !!
+app.use("/api/course", courseRoutes);   // Dummy course-content   !!!! ..... 
+  
 
 
 // Catch-all for undefined routes

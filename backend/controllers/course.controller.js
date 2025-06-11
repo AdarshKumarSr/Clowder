@@ -19,3 +19,4 @@ exports.getCoursePage = (req, res) => {
   // Return page data
   return res.status(200).json(page);
 };
+ 
