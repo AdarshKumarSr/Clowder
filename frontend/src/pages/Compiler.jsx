@@ -1,13 +1,58 @@
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import AceEditor from "react-ace";
 import axios from "axios";
 import "../assets/css/compiler.css";
-import Nav from "../components/Nav";
 
 // Import ACE themes and modes
 import "ace-builds/src-noconflict/theme-monokai";
 import "ace-builds/src-noconflict/mode-python";
 import "ace-builds/src-noconflict/ext-language_tools";
+import VisualizationComponent from "../components/Visualization-Components/Visualization";
+
+import { InstagramIcon, Linkedin, GithubIcon } from "lucide-react";
+
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <div className="social-icons">
+        <a
+          href="https://www.instagram.com/im__jayesh_"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "flex" }}
+        >
+          <InstagramIcon />{" "}
+          <span style={{ padding: "0px 5px" }}>Instagram</span>
+        </a>
+        <a
+          href="https://www.linkedin.com/in/jayesh-suthar-07a1322b5/"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "flex" }}
+        >
+          <Linkedin />{" "}
+          <span style={{ padding: "0px 5px" }}>LinkedIn</span>
+        </a>
+        <a
+          href="https://github.com/Im-Jayesh"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ display: "flex" }}
+        >
+          <GithubIcon />{" "}
+          <span style={{ padding: "0px 5px" }}>GitHub</span>
+        </a>
+      </div>
+      <p style={{ margin: "2px" }}>
+        © {new Date().getFullYear()} Clowder | All Rights Reserved
+      </p>
+      <p className="beta-disclaimer" style={{ margin: "2px" }}>
+        This product is currently in **beta version** and may not work with all
+        provided codes.
+      </p>
+    </footer>
+  );
+};
 
 const Compiler = () => {
   const boiler_says = [
@@ -32,12 +77,8 @@ const Compiler = () => {
   const [output, setOutput] = useState("");
   const [error, setError] = useState("");
   const [complexity, setComplexity] = useState({ timeComplexity: "", spaceComplexity: "" });
-  const [steps, setSteps] = useState([]); // For visualization steps
-  const [isLoading, setIsLoading] = useState(false);
-  const [currentStepIndex, setCurrentStepIndex] = useState(0); // Current step index for visualization
   const [showVisualization, setShowVisualization] = useState(false); // Toggle visibility
   const editorRef = useRef(null); // Ref to access AceEditor instance
-  const [highlightMarker, setHighlightMarker] = useState(null); // Store marker ID for highlighting
 
   const runCode = async () => {
     if(showVisualization){
@@ -72,90 +113,11 @@ const Compiler = () => {
     if(showVisualization === false){
       setShowVisualization(!showVisualization);
     }
-    setIsLoading(true)
-    try {
-
-      const response = await axios.post("http://localhost:5000/api/visualize/getsteps", { code });
-      const fetchedSteps = Array.isArray(response.data) ? response.data : [];
-
-      if (fetchedSteps.length > 0) {
-        setSteps(fetchedSteps);
-        setCurrentStepIndex(0); // Reset to the first step
-        setError(""); // Clear any error
-        highlightLine(fetchedSteps[0]?.line); // Highlight the first step's line
-      } else {
-        setError("No steps returned from the API.");
-        setSteps([]);
-        removeHighlight(); // Clear any highlights
-      }
-    } catch (err) {
-      setError("Failed to fetch steps for visualization.");
-      console.error(err);
-      setSteps([]);
-      removeHighlight(); // Clear any highlights
-    }finally{
-      setIsLoading(false)
-    }
   };
 
-  const clearEditor = () => {
-    setCode("");
-    setOutput("");
-    setError("");
-    setComplexity({ timeComplexity: "", spaceComplexity: "" });
-    setSteps([]);
-    setCurrentStepIndex(0);
-    removeHighlight(); // Clear any highlights
-  };
-
-  const highlightLine = (lineNumber) => {
-    if (editorRef.current && lineNumber) {
-      const editor = editorRef.current.editor; // Access AceEditor instance
-      const session = editor.getSession();
-
-      // Convert 1-based line number to 0-based index
-      const lineIndex = lineNumber - 1;
-
-      // Remove previous marker
-      if (highlightMarker !== null) {
-        session.removeGutterDecoration(highlightMarker, "highlighted-line");
-      }
-
-      // Highlight the specified line
-      session.addGutterDecoration(lineIndex, "highlighted-line");
-      setHighlightMarker(lineIndex);
-    }
-  };
-
-  const removeHighlight = () => {
-    if (editorRef.current && highlightMarker !== null) {
-      const editor = editorRef.current.editor;
-      const session = editor.getSession();
-      session.removeGutterDecoration(highlightMarker, "highlighted-line");
-      setHighlightMarker(null);
-    }
-  };
-
-  const showNextStep = () => {
-    if (currentStepIndex < steps.length - 1) {
-      const nextStepIndex = currentStepIndex + 1;
-      setCurrentStepIndex(nextStepIndex);
-      highlightLine(steps[nextStepIndex]?.line);
-    }
-  };
-
-  const showPreviousStep = () => {
-    if (currentStepIndex > 0) {
-      const previousStepIndex = currentStepIndex - 1;
-      setCurrentStepIndex(previousStepIndex);
-      highlightLine(steps[previousStepIndex]?.line);
-    }
-  };
-
+const ButtonGroup = () => {
   return (
-    <div className="compiler-container">
-      <div className="button-editor-output-container">
-        <div className="button-group">
+    <div className="button-group">
                     <svg className="run-btn" onClick={()=>{runCode(); analyzeCode();}} viewBox="0 0 51 55" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M45.8428 19.2415C51.9526 22.6453 52.0151 31.4124 45.9544 34.9029L13.7608 53.4439C7.78549 56.8852 0.318536 52.6043 0.269389 45.709L0.00836506 9.0877C-0.040782 2.19242 7.36439 -2.19452 13.3882 1.16128L45.8428 19.2415Z" fill="#FBFBFB"/>
             </svg>
@@ -171,78 +133,12 @@ const Compiler = () => {
 
             </button>
         </div>
-  
-        <div className="editor-output-container">
-          <div className="editor-container">
-                        <AceEditor
-                          mode="python"
-                          theme="monokai"
-                          name="python-editor"
-                          value={code}
-                          onChange={(newCode) => setCode(newCode)}
-                          fontSize={18}
-                          showPrintMargin={false}
-                          setOptions={{ useWorker: false }}
-                          style={{ width: "100%", height: "100vh", borderRadius: "0px" }}
-                          ref={editorRef}
-                        />
-          </div>
-  
-          {/* Conditional rendering of Output or Visualization */}
-          {showVisualization ? (
-            isLoading ? (
-              // Loading Animation
-              <div className="visualization-container">
-                <div className="loading-container">
-                  <div className="spinner"></div>
-                  <p>Loading visualization...</p>
-                </div>
-              </div>
-            ) : (
-              // Visualization Content
-              steps.length > 0 && (
-                <div className="visualization-container">
-                  {/* Visualization content as before */}
-                  <div className="button-group">
-                    <button onClick={showPreviousStep} disabled={currentStepIndex === 0}>
-                      Previous
-                    </button>
-                    <button onClick={showNextStep} disabled={currentStepIndex === steps.length - 1}>
-                      Next
-                    </button>
-                  </div>
-                  <h3>Visualization Steps</h3>
-                  <p>
-                    <strong>Step {steps[currentStepIndex]?.stepNumber}:</strong>{" "}
-                    {steps[currentStepIndex]?.description}
-                  </p>
-                  {steps[currentStepIndex]?.local_vars && (
-                    <div className="local-vars">
-                      <strong>Local Variables:</strong>
-                      {Object.entries(steps[currentStepIndex].local_vars).map(([key, value]) => (
-                        <div key={key} className="var-row">
-                          <div className="key-box">
-                            <span>{key}:</span>
-                          </div>
-                          <div className="value-box">
-                            <span className="value">{String(value)}</span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  )}
-                  {steps[currentStepIndex]?.line && (
-                    <div className="line-number">
-                      <strong>Line Number:</strong> {steps[currentStepIndex].line}
-                    </div>
-                  )}
-                </div>
-              )
-            )
-          ) : (
-            <div>
-                {!showVisualization && (
-                <div className="output-complexity-container">
+  )
+}
+
+const CodeAnalisis = () => {
+  return (
+                    <div className="output-complexity-container">
                   <div className="output-bar"><h3>{'Terminal^'}</h3></div>
                   <pre id="output">{output}</pre>
                   {error && <pre id="error" style={{ color: "red" }}>{error}</pre>}
@@ -253,12 +149,51 @@ const Compiler = () => {
                 </div>
                 
             </div>
+  )
+}
+
+  return (
+    <>
+    
+    <div className="compiler-container">
+      <div className="button-editor-output-container">
+          <ButtonGroup />
+        <div className="editor-output-container">
+          <div className="editor-container">
+                        <AceEditor
+                          mode="python"
+                          theme="monokai"
+                          name="python-editor"
+                          value={code}
+                          onChange={(newCode) => setCode(newCode)}
+                          fontSize={18}
+                          showPrintMargin={false}
+                          editorProps={{ $blockScrolling: true }}
+                          setOptions={{
+                            enableBasicAutocompletion: true,
+                            enableLiveAutocompletion: true,
+                            enableSnippets: true,
+                            fontSize: "18px",
+                            wrap: true,
+                          }}
+                          style={{ width: "100%", height: "100vh", borderRadius: "0px" }}
+                          ref={editorRef}
+                        />
+          </div>
+            {showVisualization ? (
+              <VisualizationComponent code={code} />
+            ) : (
+              <div>
+                  {!showVisualization && (
+                    <CodeAnalisis />
+                  )}
+              </div>
             )}
-            </div>
-          )}
         </div>
       </div>
     </div>
+      <Footer />
+    </>
   );
 
 };

@@ -10,7 +10,8 @@ router.post('/getsteps', async (req, res) => {
   }
 
   try {
-    const steps = await executePythonCode(code);
+    const steps =JSON.stringify( await executePythonCode(code), null, 2)
+    // console.log(JSON.stringify(steps, null, 2));
     console.log(steps);
     
     return res.json(steps);

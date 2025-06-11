@@ -1,0 +1,92 @@
+/* Page layout */
+@import "tailwindcss";
+.main-container {
+    display: flex;
+    height: 100vh;
+    width: 100%;
+  }
+  
+  /* Left side (buttons & errors) */
+  .controls {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Right side (Visualization) */
+  .visualization {
+    width: 45%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    border-left: 2px solid #ddd;
+  }
+  
+  /* Button styling */
+  button {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #555;
+  }
+  
+  button:disabled {
+    background: #bbb;
+    cursor: not-allowed;
+  }
+  
+  /* Error message */
+  .error {
+    color: red;
+    font-size: 16px;
+    margin-top: 10px;
+  }
+  
+  /* Step description */
+  .description {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .loading-spinner {
+    width: 40px;
+    height: 40px;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #000000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
+  .meme-image {
+    margin-top: 10px;
+    max-width: 300px;
+    border-radius: 10px;
+  }
+  
+  

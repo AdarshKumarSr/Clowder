@@ -79,6 +79,9 @@ const Compiler = () => {
       );
 
       if (response.data.success) {
+        const total_time_to_execute = response.data.result.pop();
+        const total_average_time = total_time_to_execute / response.data.result.length;
+        
         // Filter the results to show only the first failed test case or "All tests passed"
         const filteredResults = response.data.result.filter(result => !result.passed);
 
@@ -86,7 +89,7 @@ const Compiler = () => {
         if (filteredResults.length > 0) {
           setTestResults([filteredResults[0]]); // Show only first failed test
         } else {
-          setTestResults([{ input: "All tests passed", passed: true }]);
+          setTestResults([{ input: "All tests passed", passed: true, total_average_execution_time: total_average_time }]);
         }
       } else {
         setError("Error in running tests: " + response.data.error);
@@ -163,6 +166,9 @@ const Compiler = () => {
           {testResults.length === 1 && testResults[0].passed && (
             <p style={{ color: "green", fontSize: "1.2rem" }}>All Tests Passed!</p>
           )}
+          {testResults.length === 1 && testResults[0].passed && (
+            <p style={{ color: "green", fontSize: "1.2rem" }}>Total average execution time: {testResults[0].total_average_execution_time} miliseconds</p>
+          )}
           {testResults.length > 0 && testResults[0].input !== "All tests passed" && (
             testResults.map((result, index) => (
               <div key={index}>
@@ -172,6 +178,11 @@ const Compiler = () => {
                 <p style={{ color: result.passed ? "green" : "red" }}>
                   {result.passed ? "Passed" : "Failed"}
                 </p>
+                
+                <p style={{ color: result.passed ? "green" : "red" }}>
+                { result.passed ? result.execution_time : result.error}
+                </p>
+                  
                 <hr />
               </div>
             ))

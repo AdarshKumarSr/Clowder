@@ -1,0 +1,55 @@
+/* Container holding the two tables side by side */
+.local-frame-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px;
+  }
+  
+  /* Left column: main table for local variables */
+  .local-frame-left {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .local-frame-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .local-frame-table th,
+  .local-frame-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  /* Right column: complex values table */
+  .local-frame-right {
+    flex: 1;
+    margin-left: 90px;
+  }
+  
+  .complex-values-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .complex-values-table td {
+    border: none;
+    padding: 8px;
+  }
+  
+  /* Heading styling */
+  h2 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Arrow (dot) styling */
+  .complex-arrow {
+    cursor: pointer;
+    text-align: center;
+    font-size: 20px;
+    user-select: none;
+  }
+  
