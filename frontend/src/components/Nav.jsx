@@ -13,11 +13,12 @@ function Nav() {
         <li><Link to="/profile">Profile</Link></li>
       </ul>
       <div className="auth-links">
+        <Link to="/create-course">Build Course</Link>
         <Link to="/login">Login</Link>
         
       </div>
     </nav>
   );
 }
-
+ 
 export default Nav;

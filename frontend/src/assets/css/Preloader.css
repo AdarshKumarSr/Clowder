@@ -1,0 +1,54 @@
+/* src/components/Preloader.css */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+  }
+  
+  .logo-animation {
+    width: 160px;
+    height: auto;
+    opacity: 0;
+    animation: fadeInScale 1.2s ease forwards, pulse 2s infinite ease-in-out;
+  }
+  
+  /* Fade + scale animation */
+  @keyframes fadeInScale {
+    0% {
+      opacity: 0;
+      transform: scale(0.8);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Soft pulse effect */
+  @keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.04);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+  
+  /* Fade out class */
+  .fade-out {
+    opacity: 0;
+    visibility: hidden;
+  }
+  
